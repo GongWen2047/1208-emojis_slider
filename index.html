@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="section">
+            <div class="emojis">
+                <li class="slide-icon"><img src="1.jpg"></li>
+                <li><img src="2.jpg"></li>
+                <li><img src="3.jpg"></li>
+                <li><img src="4.jpg"></li>
+                <li><img src="5.jpg"></li>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="thumb"><span></span></div>
+            <div class="progress-bar"></div>
+            <input type="range" min="0" max="100" value="0">
+        </div>
+    </div>
+    <script>
+        const slider = document.querySelector("input");
+        const bar = document.querySelector(".progress-bar");
+        const thumb = document.querySelector(".thumb");
+        const slideIcon = document.querySelector(".slide-icon");
+        slider.oninput = ()=>{
+            let value = slider.value;
+            thumb.style.left = value + '%';
+            bar.style.width = value + '%';
+            if(value < 20){
+                slideIcon.style.marginTop = "0px";
+            }
+            if(value >= 20){
+                slideIcon.style.marginTop = "-150px";
+            }
+            if(value >= 40){
+                slideIcon.style.marginTop = "-300px";
+            }
+            if(value >= 60){
+                slideIcon.style.marginTop = "-450px";
+            }
+            if(value >= 80){
+                slideIcon.style.marginTop = "-600px";
+            }
+        }
+    </script>
+</body>
+</html>
